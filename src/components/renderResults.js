@@ -10,19 +10,21 @@ function RenderResults() {
       .get('http://localhost:4000')
       .then((res) => {
         setTable(res.data);
+        console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  console.log(table);
-
   return (
     <Container>
       <Row>
         <Col className="bg-light border" xs="4">
           <b>Course Name</b>
+        </Col>
+        <Col className="bg-light border" xs="4">
+          <b>Summary</b>
         </Col>
         {/*         <Col className="bg-light border" xs="4">
           <div>
@@ -39,6 +41,9 @@ function RenderResults() {
           <Row>
             <Col className="bg-light border" xs="4">
               <p>{row.courseName}</p>
+            </Col>
+            <Col className="bg-light border" xs="4">
+              <p>{row.courseTopics}</p>
             </Col>
             <Col className="bg-light border" xs="4">
               <p>{row.jobsNo}</p>
